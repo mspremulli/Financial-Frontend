@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,9 +12,9 @@ const Login = () => {
     const data = new FormData(e.target);
     setEmail(data.get('email'));
     setPassword(data.get('password'));
-    // login({email, password});
     console.log(email, password);
-  } 
+    axios.post('http://localhost:8080', {email, password})
+  }
   //input form to submit login email & password
   return(
     <div className = "loginForm">
