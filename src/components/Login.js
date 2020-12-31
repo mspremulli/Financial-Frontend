@@ -13,7 +13,13 @@ const Login = () => {
     setEmail(data.get('email'));
     setPassword(data.get('password'));
     console.log(email, password);
-    axios.post('http://localhost:8080', {email, password})
+
+    let headers = {
+      header1:"Access-Control-Allow-Origin",
+      header2:"LOGIN"
+    }
+
+    axios.post('http://localhost:8080', {email, password}, headers)
   }
   //input form to submit login email & password
   return(
