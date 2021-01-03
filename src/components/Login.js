@@ -19,7 +19,7 @@ const Login = () => {
       header2:"LOGIN"
     }
 
-    axios.post('http://localhost:8080', {email, password}, headers)
+    axios.put('http://localhost:8080/LOGIN', {email, password}, headers)
   }
   //input form to submit login email & password
   return(
