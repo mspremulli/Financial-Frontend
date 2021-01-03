@@ -14,12 +14,13 @@ const Login = () => {
     setPassword(data.get('password'));
     console.log(email, password);
 
-    let headers = {
-      header1:"Access-Control-Allow-Origin",
-      header2:"LOGIN"
+    try {
+      axios.put('http://localhost:8080/LOGIN', {email, password})
+      .then(console.log("logged in!"))
+    } catch (error) {
+      console.log("login failed")
     }
-
-    axios.put('http://localhost:8080/LOGIN', {email, password}, headers)
+    
   }
   //input form to submit login email & password
   return(

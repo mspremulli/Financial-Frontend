@@ -12,7 +12,13 @@ const Signup = () => {
     setEmail(data.get('email'));
     setPassword(data.get('password'));
     console.log(email, password);
-    axios.post('http://localhost:8080/LOGIN', {email, password})
+    
+    try {
+      axios.post('http://localhost:8080/LOGIN', {email, password})
+      .then(console.log("logged in!"))
+    } catch (error) {
+      console.log("login failed")
+    }
 
   } 
   //input form to submit login email & password
